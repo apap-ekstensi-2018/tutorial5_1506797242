@@ -92,7 +92,6 @@ public class StudentController
     {
         studentDAO.deleteStudent (npm);
         StudentModel student = studentDAO.selectStudent(npm);
-        
         if (student != null) {
         	model.addAttribute("student",student);
         	return "not-found";
@@ -100,9 +99,7 @@ public class StudentController
         	model.addAttribute("npm", npm);
         	return "delete";
         }
-        
     }
-    
     @RequestMapping("/student/update/{npm}")
     public String UpdateSubmit (Model model, @PathVariable (value="npm")String npm){
     	StudentModel student = studentDAO.selectStudent(npm);
